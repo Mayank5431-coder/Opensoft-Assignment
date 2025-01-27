@@ -74,7 +74,6 @@ async function Signup( req , res , next){
       const otp_string = otpGenerator();
       const otp = parseInt(otp_string);
   
-      //gmail call->
   
       const passkey = await bcrypt.hash(password , 10);
       const token = jwt.sign({
