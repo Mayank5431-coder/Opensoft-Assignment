@@ -10,10 +10,10 @@ require("dotenv").config();
 
 router.post("/signup" , Signup , (req,res) => {
   const token = req.token;
-  res.cookie("token" , token );
   res.json({ 
     success : true,
-    msg : "Otp sent successfully !"
+    msg : "Otp sent successfully !",
+    token : token
   })
 })
 
@@ -50,11 +50,9 @@ router.post("/signin" , Signin , (req,res) => {
     email : email
   } , process.env.JWT_PASSWORD);
 
-  res.cookie("token" , token);
-
-  //console.log(req.cookies.token);
 
   res.json({
+    token : token,
     success : true,
     msg : "User Signed in to the Dashboard !"
   })

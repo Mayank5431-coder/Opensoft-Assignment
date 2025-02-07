@@ -19,6 +19,7 @@ const SignupOtp = async (req,res,next) => {
       next();
     }else{
       res.json({
+        token: token,
         success : false,
         msg : "OTP mismatched !"
       })
