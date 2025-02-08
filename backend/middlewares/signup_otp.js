@@ -10,6 +10,8 @@ const SignupOtp = async (req,res,next) => {
     const username = obj.username;
     const otp1 = req.body.otp;
     const otp = Number(otp1);
+
+    console.log("otp recieved: ", otp);
     const otp_ans = await OTP.findOne({
       email : email
     })
