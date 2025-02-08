@@ -58,5 +58,18 @@ router.post("/signin" , Signin , (req,res) => {
   })
 })
 
+router.get("/users" , async (req,res) => {
+  try{
+    const users = await User.find();
+    res.json({
+      users
+    })
+  }catch(err){
+    res.json({
+      msg : "Internal Problem"
+    })
+  }
+})
+
 
 module.exports = router;
